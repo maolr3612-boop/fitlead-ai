@@ -1,0 +1,31 @@
+1:"$Sreact.fragment"
+2:"static/chunks/478-ccf21f08feb215d2.js"
+3:"static/chunks/672-208bbf16d087beea.js"
+4:"static/chunks/app/page-bba3ff22ef77013c.js"
+5:I[5672,["478","$2","672","$3","974","$4"],""]
+6:I[3605,["478","$2","672","$3","974","$4"],"default"]
+7:I[4229,[],""]
+8:I[3521,[],""]
+9:I[4514,["478","$2","672","$3","974","$4"],"Button"]
+10:I[9112,[],"OutletBoundary"]
+11:"$Sreact.suspense"
+14:"ViewportBoundary"
+15:I[9112,[],"$14"]
+16:"MetadataBoundary"
+17:I[9112,[],"$16"]
+:HL["/fitlead-ai/_next/static/css/524c1f740ec222d2.css","style"]
+b:X
+e:X
+e:C
+f:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"page-shell narrow","children":[["$","span",null,{"className":"eyebrow","children":"404 / FIND YOUR WAY BACK"}],["$","h1",null,{"className":"page-title","children":"这条路径暂时没有计划。"}],["$","p",null,{"children":"页面可能已移动，请从首页或评估重新开始。"}],["$","$L9",null,{"asChild":true,"children":["$","$L5",null,{"href":"/","children":"返回首页"}]}]]}],null,["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]]}],"p":"$@13","v":null,"s":"$b"}}]]
+c:[["children",{"s":"_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L7",null,{"parallelRouterKey":"children","template":["$","$L8",null,{}]}]]}],"p":"$@d","v":"$e","s":"$b"},"c":"$Qf"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/fitlead-ai/_next/static/css/524c1f740ec222d2.css","precedence":"next"}]],["$","html",null,{"lang":"zh-CN","data-scroll-behavior":"smooth","children":["$","body",null,{"children":[["$","div",null,{"style":{"background":"#e9f0df","color":"#384c2e","padding":"8px 16px","textAlign":"center","fontSize":12},"children":"作品集演示 · 可浏览界面与表单流程，评估提交及方案生成未接入后台。"}],["$","header",null,{"className":"header","children":[["$","$L5",null,{"className":"brand","href":"/","aria-label":"FitLead AI 首页","children":[["$","span",null,{"className":"brand-icon","children":["$","$L6",null,{"icon":{"name":"activity","size":24,"node":[["path",{"d":"M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2","key":"169zse"}]]},"size":23}]}],"FitLead",["$","span",null,{"className":"brand-ai","children":"AI"}]]}],["$","nav",null,{"aria-label":"主导航","children":[["$","$L5",null,{"href":"/#approach","children":"如何开始"}],["$","$L5",null,{"href":"/#services","children":"服务介绍"}],["$","$L5",null,{"href":"/consultation","children":["真人私教 ",["$","$L6",null,{"icon":{"name":"arrow-up-right","size":24,"node":[["path",{"d":"M7 7h10v10","key":"1tivn9"}],["path",{"d":"M7 17 17 7","key":"1vkiza"}]]},"size":13}]]}]]}],["$","$L5",null,{"href":"/assessment","className":"nav-cta","children":["开始评估 ",["$","$L6",null,{"icon":"$0:t:t:d:r:props:children:1:props:children:props:children:1:props:children:1:props:children:2:props:children:1:props:icon","size":15}]]}]]}],["$","$L7",null,{"parallelRouterKey":"children","template":["$","$L8",null,{}],"notFound":[["$","main",null,{"className":"page-shell narrow","children":[["$","span",null,{"className":"eyebrow","children":"404 / FIND YOUR WAY BACK"}],["$","h1",null,{"className":"page-title","children":"这条路径暂时没有计划。"}],["$","p",null,{"children":"页面可能已移动，请从首页或评估重新开始。"}],["$","$L9",null,{"asChild":true,"children":["$","$L5",null,{"href":"/","children":"返回首页"}]}]]}],[]]}],["$","footer",null,{"children":[["$","$L5",null,{"className":"brand","href":"/","children":["FitLead ",["$","span",null,{"className":"brand-ai","children":"AI"}]]}],["$","p",null,{"children":"让每一次开始，都有科学的方向。"}],["$","div",null,{"children":[["$","$L5",null,{"href":"/privacy","children":"隐私与数据管理"}],["$","$L5",null,{"href":"/admin","children":"管理后台"}],["$","span",null,{"children":"© 2026 FitLead AI"}]]}],["$","small",null,{"children":"本产品提供一般健身信息，不替代医疗诊断、治疗或专业运动评估。演示模式 · 规则引擎。"}]]}]]}]}]]}],"p":"$@a","v":null,"s":"$b"},"c":"$Qc"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L15",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L17",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$11",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"FitLead AI · 为你而练"}],["$","meta","1",{"name":"description","content":"从科学评估开始，建立属于你的训练与饮食节奏。"}]]}]}],null]}],null]}],"p":"$@18","v":null,"s":"$b"}},"a":"$@19","u":"$@1a","b":"ObkT1IRt6mNFX1YWO-Le7"}
+12:null
+b:300
+1a:true
+b:C
+19:0
+d:"$undefined"
+a:"$undefined"
+18:"$undefined"
+13:"$undefined"
