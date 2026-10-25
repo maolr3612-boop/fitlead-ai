@@ -1,15 +1,7 @@
-# FitLead AI · 健身规划
+# FitLead AI online health platform
 
-毛龙锐个人作品集的独立静态演示。
-
-可浏览首页、健康评估流程、咨询及隐私页面。评估提交、AI 方案生成和账号服务尚未接入后台。
-
-## GitHub Pages
-
-发布源：main 分支 / 根目录；入口：index.html；保留整个目录，尤其是静态资源和 .nojekyll。
-
-本仓库仅包含经整理的前端发布产物，不包含原业务后台、数据库、API Key、.env 或 OAuth 凭据。
-
-个人作品集：https://maolr3612-boop.github.io/
-
-后续修改请在原开发工程中完成，重新构建后同步本仓库，确认后推送 main。
+This GitHub Pages site connects to the independently deployed FitLead Workers/D1 API.
+Data sources: USDA FoodData Central (CC0/public domain), free-exercise-db text (Unlicense per upstream; images excluded).
+Rehabilitation sources are linked and independently summarized, not copied as a clinical manual. See the site's source/rights registry.
+Generation is validated deterministic rules, not an enabled LLM. User health data and secrets are not stored in this public repository.
+Backend bundle source is on branch codex/health-v2-backend; editable project sources remain in the local FitLead project.
