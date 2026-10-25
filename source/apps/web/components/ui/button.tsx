@@ -1,0 +1,36 @@
+"use client";
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+const variants = cva("button", {
+  variants: {
+    variant: { default: "primary", outline: "outline", ghost: "ghost" },
+  },
+  defaultVariants: { variant: "default" },
+});
+export interface ButtonProps
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof variants> {
+  asChild?: boolean;
+}
+export function Button({
+  className,
+  variant,
+  asChild = false,
+  disabled,
+  ...props
+}: ButtonProps) {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  const Comp = asChild ? Slot : "button";
+  return (
+    <Comp
+      className={twMerge(clsx(variants({ variant }), className))}
+      disabled={asChild ? undefined : disabled || !mounted}
+      {...props}
+    />
+  );
+}

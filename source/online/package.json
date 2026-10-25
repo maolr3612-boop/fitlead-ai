@@ -1,0 +1,25 @@
+{
+  "name": "fitlead-online-services",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "check": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "bundle": "esbuild src/worker.ts --bundle --format=esm --platform=browser --outfile=dist/worker.js",
+    "pretest": "esbuild src/planning.ts --bundle --format=esm --platform=node --outfile=dist/planning-test.mjs"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20261025.1",
+    "@types/node": "26.6.5",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "wrangler": "4.152.0"
+  },
+  "overrides": {
+    "undici": "^7.30.1"
+  }
+}

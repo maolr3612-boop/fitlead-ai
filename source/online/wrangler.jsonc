@@ -1,0 +1,12 @@
+{
+  "$schema":"node_modules/wrangler/config-schema.json",
+  "name":"fitlead-health-api",
+  "main":"src/worker.ts",
+  "compatibility_date":"2026-10-25",
+  "compatibility_flags":["nodejs_compat"],
+  "workers_dev":true,
+  "observability":{"enabled":true,"head_sampling_rate":0.1},
+  "triggers":{"crons":["0 19 * * *"]},
+  "vars":{"ALLOWED_ORIGINS":"https://maolr3612-boop.github.io,http://127.0.0.1:3000,http://127.0.0.1:3002,http://127.0.0.1:4173"},
+  "d1_databases":[{"binding":"DB","database_name":"fitlead-health-v2","database_id":"c1621d6e-a30f-4436-8d1c-c10ac35b079c","migrations_dir":"migrations"}]
+}

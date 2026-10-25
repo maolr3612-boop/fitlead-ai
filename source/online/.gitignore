@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars
+dist/
+dist-preview/
+data/*.raw.json
+data/*.zip
+data/raw/
+test-artifacts/
