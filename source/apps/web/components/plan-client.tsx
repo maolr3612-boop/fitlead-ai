@@ -5,6 +5,7 @@ import { ArrowUpRight, Download, ShieldCheck, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { api, planPath } from "@/lib/api";
 import type { Plan } from "@/types/plan";
+import SourceReference from "@/components/source-reference";
 export default function PlanPage({
   params,
 }: {
@@ -299,14 +300,7 @@ export default function PlanPage({
               <summary>{s.name}</summary>
               <div className="detail-content">
                 <p className="note">{s.use}</p>
-                <a
-                  className="text-link"
-                  href={s.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  查看原始来源 ↗
-                </a>
+                <SourceReference source={s} label="查看原始来源 ↗" />
               </div>
             </details>
           ))}
@@ -349,4 +343,3 @@ export default function PlanPage({
     </main>
   );
 }
-

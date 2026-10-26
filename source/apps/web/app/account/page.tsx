@@ -24,6 +24,14 @@ const today = () =>
     month: "2-digit",
     day: "2-digit",
   }).format(new Date());
+const emptyRecord = (): Checkin => ({
+  day: today(),
+  weight: null,
+  water_ml: 0,
+  sleep_hours: 7,
+  exercise_minutes: 0,
+  notes: "",
+});
 function download(value: unknown, name: string) {
   const url = URL.createObjectURL(
     new Blob(
@@ -51,14 +59,7 @@ export default function Account() {
     [loading, setLoading] = useState(true),
     [confirmDelete, setConfirmDelete] = useState(false),
     [confirmPassword, setConfirmPassword] = useState("");
-  const [record, setRecord] = useState<Checkin>({
-    day: today(),
-    weight: null,
-    water_ml: 0,
-    sleep_hours: 7,
-    exercise_minutes: 0,
-    notes: "",
-  });
+  const [record, setRecord] = useState<Checkin>(emptyRecord);
   async function load() {
     const r = await api<AccountData>("/account");
     setData(r);
@@ -70,7 +71,11 @@ export default function Account() {
       return;
     }
     load()
-      .catch(() => setData(null))
+      .catch((e) => {
+        setData(null);
+        if (!/登录|注册/.test((e as Error).message))
+          setError((e as Error).message);
+      })
       .finally(() => setLoading(false));
   }, []);
   async function authenticate(e: React.FormEvent) {
@@ -94,11 +99,20 @@ export default function Account() {
       setCode(result.recovery_code || "");
       setPassword("");
       setRecovery("");
-      await load();
+      setRecord(emptyRecord());
+      setConfirmDelete(false);
+      setConfirmPassword("");
+      setData({ account: result.account, plans: [], checkins: [] });
+      const loaded = await load();
+      if (loaded.plans[0])
+        sessionStorage.setItem("fl_plan", loaded.plans[0].id);
+      else sessionStorage.removeItem("fl_plan");
       setMessage(
         mode === "register"
           ? "账号已创建，当前匿名方案已保存到此账号。"
-          : "已安全登录，可查看个人历史与记录。",
+          : mode === "recover"
+            ? "密码已重置，旧会话和旧恢复码已失效。请保存新的恢复码。"
+            : "已安全登录，可查看个人历史与记录。",
       );
     } catch (e) {
       setError((e as Error).message);
@@ -107,12 +121,22 @@ export default function Account() {
     }
   }
   async function signOut() {
+    setError("");
+    setMessage("");
     setBusy(true);
     try {
       await api("/auth/logout", {});
       setData(null);
       setCode("");
       clearAccess();
+      setRecord(emptyRecord());
+      setConfirmDelete(false);
+      setConfirmPassword("");
+      setConsent(false);
+      setUsername("");
+      setPassword("");
+      setRecovery("");
+      setMode("login");
       setMessage("已退出账号，本标签页的访问令牌已清除。");
     } catch (e) {
       setError((e as Error).message);
@@ -136,6 +160,8 @@ export default function Account() {
     }
   }
   async function exportData() {
+    setError("");
+    setMessage("");
     setBusy(true);
     try {
       download(await api("/account/export"), "FitLead-我的账号数据.json");
@@ -207,7 +233,12 @@ export default function Account() {
                 onClick={() => {
                   setMode(k);
                   setError("");
+                  setMessage("");
+                  setPassword("");
+                  setRecovery("");
+                  setConsent(false);
                 }}
+                disabled={busy}
               >
                 {l}
               </button>
@@ -557,4 +588,3 @@ export default function Account() {
     </main>
   );
 }
-

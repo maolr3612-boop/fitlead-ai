@@ -8,6 +8,8 @@ export function accessToken() {
 }
 export function clearAccess() {
   sessionStorage.removeItem(tokenKey);
+  localStorage.removeItem("fl_plan");
+  sessionStorage.removeItem("fl_plan");
   pending = null;
 }
 export function pageUrl(path: string) {
@@ -49,7 +51,7 @@ export async function api<T = any>(
   try {
     body = await response.json();
   } catch {
-    throw new Error("服务连接失败，请确认后端已启动后重试。");
+    throw new Error("暂时无法连接服务，请稍后重试。");
   }
   if (!response.ok || !body.ok)
     throw new Error(body.error?.message || "操作失败，请重试");

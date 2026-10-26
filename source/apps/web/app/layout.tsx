@@ -49,7 +49,7 @@ export default function RootLayout({
             <Link href="/library">动作 · 营养 · 康复</Link>
             <Link href="/account">账号与健康记录</Link>
             <Link href="/privacy">隐私与数据管理</Link>
-            <Link href="/admin">管理后台</Link>
+            {!ONLINE && <Link href="/admin">管理后台</Link>}
             <span>© 2026 FitLead AI</span>
           </div>
           <small>
@@ -63,4 +63,3 @@ export default function RootLayout({
     </html>
   );
 }
-

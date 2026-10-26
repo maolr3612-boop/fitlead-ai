@@ -70,7 +70,7 @@ export default function Consultation() {
             已记录你的{goals[goal]}目标与期望联系时间：{preferred}。
           </p>
           <div className="info-box">
-            这是一份咨询申请，不代表预约时间已确认。真人将根据你授权的联系方式进一步沟通。尚未产生任何收费或支付。
+            这是一份咨询申请，不代表预约时间已确认。具体服务安排和联系时间仍需人工确认。尚未产生任何收费或支付。
           </div>
           <div className="row">
             <Button asChild>
@@ -98,7 +98,7 @@ export default function Consultation() {
           目标与训练条件沟通 · 动作与训练习惯指导 · 进一步评估是否适合服务
         </p>
         <div className="info-box">
-          申请咨询免费。后续服务内容与费用需单独确认；本站 V1
+          申请咨询免费。后续服务内容与费用需单独确认；本站
           不支持在线支付，不会自动扣款。
         </div>
         <form onSubmit={submit} noValidate>
@@ -183,4 +183,3 @@ export default function Consultation() {
     </main>
   );
 }
-

@@ -2,7 +2,8 @@
 import { useEffect, useState } from "react";
 import { LockKeyhole, ArrowRight, RefreshCw, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { api, goals } from "@/lib/api";
+import { api, goals, ONLINE } from "@/lib/api";
+import Link from "@/components/site-link";
 type Lead = {
   id: string;
   contact: string;
@@ -128,6 +129,10 @@ export default function Admin() {
     }
   }
   useEffect(() => {
+    if (ONLINE) {
+      setLoading(false);
+      return;
+    }
     refresh();
   }, []);
   async function login(e: React.FormEvent) {
@@ -154,6 +159,25 @@ export default function Admin() {
       setError((e as Error).message);
     }
   }
+  if (ONLINE)
+    return (
+      <main className="page-shell narrow">
+        <div className="panel">
+          <div className="review-icon">
+            <LockKeyhole />
+          </div>
+          <h1 className="page-title">线上管理入口尚未开放</h1>
+          <p>
+            这里不是个人账号登录入口。请进入“我的账号”查看和管理自己的方案、记录与数据。
+          </p>
+          <Button asChild>
+            <Link href="/account">
+              前往我的账号 <ArrowRight size={17} />
+            </Link>
+          </Button>
+        </div>
+      </main>
+    );
   if (loading)
     return (
       <main className="page-shell">

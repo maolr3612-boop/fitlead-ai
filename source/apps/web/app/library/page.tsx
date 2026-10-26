@@ -4,6 +4,7 @@ import Link from "@/components/site-link";
 import { Search, BookOpen, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { api, ONLINE } from "@/lib/api";
 import { Button } from "@/components/ui/button";
+import SourceReference from "@/components/source-reference";
 type Source = {
   id: string;
   name: string;
@@ -61,6 +62,7 @@ export default function Library() {
     [total, setTotal] = useState(0),
     [busy, setBusy] = useState(false),
     [error, setError] = useState("");
+  const [queryVersion, setQueryVersion] = useState(0);
   useEffect(() => {
     if (ONLINE)
       api("/catalog/meta")
@@ -92,8 +94,10 @@ export default function Library() {
     return () => {
       active = false;
     };
-  }, [tab, searched, page, equipment, level]);
+  }, [tab, searched, page, equipment, level, queryVersion]);
   function change(t: string) {
+    setBusy(false);
+    setError("");
     setTab(t);
     setQuery("");
     setSearched("");
@@ -161,6 +165,7 @@ export default function Library() {
                 e.preventDefault();
                 setSearched(query.trim());
                 setPage(1);
+                setQueryVersion((n) => n + 1);
               }}
             >
               <div className="field">
@@ -410,14 +415,13 @@ export default function Library() {
               <div className="info-box">
                 训练和高温的额外需求取决于实际出汗与失水，不采用一个简单体重倍数作为人人适用处方，也不鼓励为了打卡而强迫大量饮水。
               </div>
-              <a
-                className="text-link"
-                href="https://www.efsa.europa.eu/en/efsajournal/pub/1459"
-                target="_blank"
-                rel="noreferrer"
-              >
-                阅读 EFSA 原始依据 ↗
-              </a>
+              <SourceReference
+                source={{
+                  id: "efsa-water",
+                  url: "https://www.efsa.europa.eu/en/efsajournal/pub/1459",
+                }}
+                label="阅读 EFSA 原始依据 ↗"
+              />
               <Button asChild>
                 <Link href="/assessment">
                   结合我的数据开始评估 <ArrowUpRight size={17} />
@@ -435,14 +439,7 @@ export default function Library() {
                   <h3 style={{ marginTop: 14 }}>{s.name}</h3>
                   <p>{s.use}</p>
                   <p className="note">授权与使用边界：{s.license}</p>
-                  <a
-                    className="text-link"
-                    href={s.url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    查看来源 <ArrowUpRight size={15} />
-                  </a>
+                  <SourceReference source={s} />
                 </article>
               ))}
               <p className="note">
@@ -456,4 +453,3 @@ export default function Library() {
     </main>
   );
 }
-

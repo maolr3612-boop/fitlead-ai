@@ -1,3 +1,4 @@
+param([string]$CommitMessage='Publish tested FitLead website')
 $ErrorActionPreference='Stop'
 $env:GIT_TERMINAL_PROMPT='0'
 $env:GCM_INTERACTIVE='Never'
@@ -27,7 +28,7 @@ Backend bundle source is on branch codex/health-v2-backend; editable project sou
 '@
 $items+=@{path='README.md';mode='100644';type='blob';content=$notice}
 $tree=Invoke-RestMethod "$repo/git/trees" -Method Post -Headers $headers -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes((@{base_tree=$commit.tree.sha;tree=$items}|ConvertTo-Json -Depth 8 -Compress)))
-$newCommit=Invoke-RestMethod "$repo/git/commits" -Method Post -Headers $headers -ContentType 'application/json' -Body (@{message='Connect evidence library, computed health plans and private accounts';tree=$tree.sha;parents=@($ref.object.sha)}|ConvertTo-Json -Compress)
+$newCommit=Invoke-RestMethod "$repo/git/commits" -Method Post -Headers $headers -ContentType 'application/json' -Body (@{message=$CommitMessage;tree=$tree.sha;parents=@($ref.object.sha)}|ConvertTo-Json -Compress)
 # Non-force update protects concurrent work. Previous static assets remain for cache compatibility.
 $null=Invoke-RestMethod "$repo/git/refs/heads/main" -Method Patch -Headers $headers -ContentType 'application/json' -Body (@{sha=$newCommit.sha;force=$false}|ConvertTo-Json)
 [pscustomobject]@{commit=$newCommit.sha;files=$items.Count;url='https://maolr3612-boop.github.io/fitlead-ai/';previous_commit=$ref.object.sha}|ConvertTo-Json -Compress

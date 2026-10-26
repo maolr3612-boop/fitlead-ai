@@ -51,7 +51,7 @@ $env:NEXT_PUBLIC_BASE_PATH='/fitlead-ai'
 npm run build
 ```
 
-Static plans use `/plan/demo/?id=<private-plan-uuid>` as the shell; the UUID alone grants no read access. The site-link component uses ordinary full-document anchors for GitHub Pages and NextLink for local server mode. This avoids segment/RSC prefetch requests that a static host cannot negotiate and prevents mixing cached runtime module versions. Explicit browser redirects use pageUrl/planPath helpers. GitHub Pages serves the built output, and the frontend calls the independent online API with a bearer token. The public data bundle has no keys or personal health records.
+Static plans use `/plan/demo/?id=<private-plan-uuid>` as the shell; the UUID alone grants no read access. Next.js handles basePath for Links; explicit browser redirects use pageUrl/planPath helpers. GitHub Pages serves the built output, and the frontend calls the independent online API with a bearer token. The public data bundle has no keys or personal health records.
 
 ## Tests
 
