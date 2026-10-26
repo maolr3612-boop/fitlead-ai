@@ -1,4 +1,4 @@
-:HL["/fitlead-ai/_next/static/css/157db282901ad651.css","style"]
+:HL["/fitlead-ai/_next/static/css/366519027e668b9c.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"consultation","h":96,"c":"$Q2"}]]
-0:{"b":"1yf5lA0ttgqyZxozwrGlh","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"qlujrRrtRjeRr7HTzRM_-","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
